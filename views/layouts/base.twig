@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{wp_title ? wp_title ~ ' - '}}{{site.name}}</title>
+    <meta name="description" content="{{site.description}}">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@kililuna">
+    <meta name="twitter:title" content="{{wp_title ? wp_title ~ ' - '}}{{site.name}}">
+    <meta name="twitter:description" content="{{site.description}}">
+    <meta name="twitter:creator" content="@kililuna">
+    <meta name="twitter:image" content="{{function('get_stylesheet_directory_uri')}}/screenshot.jpg">
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ wp_title ? wp_title ~ ' - '}}{{site.name}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{site.url}}" />
+    <meta property="og:image" content="{{function('get_stylesheet_directory_uri')}}/screenshot.jpg" />
+    <meta property="og:description" content="{{site.description}}" />
+    <meta property="og:site_name" content="{{site.name}}" />
+    <script>document.querySelector('html').classList.remove('no-js');</script>
+    {{function('wp_head')}}
+    {% block head %}{% endblock %}
+  </head>
+  <body class="{{body_class}}">
+    <main>
+      <h1 class="sr-only">{{ wp_title ? wp_title ~ ' - '}}{{ site.name }}</h1>
+      {% block header %}{% endblock %}
+      {% block content %}{{__('Sorry, no content yet', 'luna')}}{% endblock %}
+      {% block footer %}{% endblock %}
+      {{function('wp_footer')}}
+    </main>
+  </body>
+</html>

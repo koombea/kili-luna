@@ -1,0 +1,10 @@
+.main-navigation{
+	font-family: $font-family-sans-serif;
+	&__item{
+		&.is-active a{
+			background-color: $gray-light;
+			background-color: rgba($gray-light, 0.12);
+		}
+	}
+	&--index{}
+}

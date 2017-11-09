@@ -1,0 +1,34 @@
+// Add / Remove / Clear Floats
+//===================
+
+.float--start   { float: $start; }
+.float--end    { float: $end; }
+.float--none    { float:none; }
+
+.clearfix       { @include clearfix; }
+.float--clear   { clear: both; }
+.clear-left     { clear: left; }
+
+.small--float-start{
+  @media #{$small} {
+    float: $start;
+  }
+}
+
+.small--float-end{
+  @media #{$small} {
+    float: $end;
+  }
+}
+
+.medium--float-start{
+  @media #{$medium} {
+    float: $start;
+  }
+}
+.medium--float-end{
+  @media #{$medium} {
+    float: $end;
+  }
+}
+

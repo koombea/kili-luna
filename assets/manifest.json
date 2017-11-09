@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+        "scripts/main.js"
+      ],
+      "main": true
+    },
+    "main.css": {
+      "files": [
+        "styles/main.scss"
+      ],
+      "main": true
+    }
+  },
+  "paths": {
+    "source": "assets/",
+    "dist": "dist/"
+  },
+  "config": {
+    "devUrl": "http://luna.dev/"
+  }
+}

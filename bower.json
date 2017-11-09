@@ -1,0 +1,16 @@
+{
+  "name": "kili",
+  "homepage": "https://koombea.com",
+  "author": "Fabian Altahona <fabian.altahona@koombea.com>",
+  "description": "Front-end package manager",
+  "contributors": [
+    {
+      "name": "Rhonalf Martinez",
+      "email": "rhonalf.martinez@koombea.com"
+    }
+  ],
+  "private": true,
+  "dependencies": {
+  },
+  "overrides": {}
+}
