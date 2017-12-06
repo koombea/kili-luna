@@ -1,6 +1,15 @@
 {% extends "layouts/base.twig" %}
 {% block header %}{% include 'partials/header.twig' %}{% endblock %}
 {% block content %}
-  page
+  {% if is_kili %}
+    {% do action('page_blocks') %}
+  {% else %}
+    <section class="section">
+      <div class="container">
+        <h2>{{post.title}}</h2>
+        <div>{{post.content}}</div>
+      </div>
+    </section>
+  {% endif %}
 {% endblock %}
 {% block footer %}{% include 'partials/footer.twig' %}{% endblock %}

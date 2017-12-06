@@ -1,0 +1,6 @@
+<section{{page_block.section_id ? ' id="' ~ page_block.section_id ~ '"'}} class="section {{block_unique_class}}">
+  <div class="container">
+    <h2>{{page_block.title}}</h2>
+    <div{{page_block.show_title ? '' : ' class="push--top"'}}>{{page_block.content}}</div>
+  </div>
+</section>
