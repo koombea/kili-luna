@@ -1,6 +1,9 @@
 {% extends "layouts/base.twig" %}
 {% block header %}{% include 'partials/header.twig' %}{% endblock %}
 {% block content %}
-  single
+  <article>
+    <h2>{{post.title}}</h2>
+    <div>{{post.content}}</div>
+  </article>
 {% endblock %}
 {% block footer %}{% include 'partials/footer.twig' %}{% endblock %}

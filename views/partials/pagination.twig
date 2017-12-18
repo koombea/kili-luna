@@ -1,0 +1,29 @@
+{% if pagination.pages %}
+  <div class="text-center soft--bottom">
+    <ul class="pagination">
+      {% if pagination.prev %}
+        <li class="pagination__item {{pagination.prev.class}}">
+          <a href="{{pagination.prev.link}}" class="pagination__link{{pagination.prev.link|length ? '' : ' invisible'}}">
+            <span class="icon icon--chevron-left"></span>
+          </a>
+        </li>
+      {% endif %}
+      {% for page in pagination.pages %}
+        <li class="pagination__item {{page.class}}">
+          {% if page.link %}
+              <a href="{{page.link}}" class="pagination__link {{page.class}}">{{page.title}}</a>
+          {% else %}
+            {{page.title}}
+          {% endif %}
+        </li>
+      {% endfor %}
+      {% if pagination.next %}
+        <li class="pagination__item {{pagination.next.class}}">
+          <a href="{{pagination.next.link}}" class="pagination__link{{pagination.next.link|length ? '' : ' invisible'}}">
+            <span class="icon icon--chevron-right"></span>
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+{% endif %}

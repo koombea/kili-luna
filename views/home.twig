@@ -1,6 +1,27 @@
 {% extends "layouts/base.twig" %}
 {% block header %}{% include 'partials/header.twig' %}{% endblock %}
 {% block content %}
-  home
+  <section class="section section--page">
+    <div class="container">
+      <h2>{{page.title}}</h2>
+      {% for post in posts %}<article class="{{post.class}}" id="article-{{post.id}}">
+        <h3>{{post.title}}</h3>
+        {% if post.can_edit %}
+          <a href="{{post.get_edit_url}}">{{__('Edit')}}</a>
+        {% endif %}
+        <div>
+          {% if function('post_password_required', post.id) %}
+            {{ __('Protected content', 'kili-luna') }}
+          {% else %}
+            {{post.post_excerpt ? post.post_excerpt : (post.content)}}
+          {% endif %}
+        </div>
+        <a href="{{post.link}}">{{__('Permalink')}}</a>
+      </article>{% endfor %}
+      {% if posts %}
+        {% include 'partials/pagination.twig' %}
+      {% endif %}
+    </div>
+  </section>
 {% endblock %}
 {% block footer %}{% include 'partials/footer.twig' %}{% endblock %}

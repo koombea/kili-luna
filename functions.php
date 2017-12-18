@@ -25,8 +25,9 @@ if( ! class_exists( 'Kili_Luna' ) ) {
 		 * Class constructor
 		 */
 		function __construct() {
-			$this->theme_setup();
 			$this->add_actions();
+			$this->add_filters();
+			$this->theme_setup();
 		}
 
 		/**
@@ -41,6 +42,7 @@ if( ! class_exists( 'Kili_Luna' ) ) {
 			) );
 			$kili_framework->dynamic_styles->set_base_styles( get_base_styles() );
 			$kili_framework->render_pages();
+			add_theme_support( 'kili-nice-search' );
 		}
 
 		/**
@@ -54,6 +56,30 @@ if( ! class_exists( 'Kili_Luna' ) ) {
 			}
 			// add_action( 'after_setup_theme', array( $this, 'theme_translations' ) );
 			// add_action( 'customize_register', array( $this, 'theme_customizer' ) );
+		}
+
+		/**
+		 * Add filters to theme
+		 *
+		 * @return void
+		 */
+		public function add_filters() {
+			add_filter( 'timber_context', array( $this, 'theme_context' ) );
+		}
+
+		/**
+		 * Options for using in page context
+		 *
+		 * @param array $context The timber context.
+		 * @return array Theme options array
+		 */
+		public function theme_context( $context ) {
+			global $kili_framework;
+			if ( is_home() ) {
+				$context['page'] = new TimberPost();
+				$context['menu']['primary'] = new TimberMenu( 'primary_navigation' );
+			}
+			return $context;
 		}
 
 		/**
@@ -78,7 +104,7 @@ if( ! class_exists( 'Kili_Luna' ) ) {
 		}
 
 		/**
-		 * Theme customizer
+		 * Theme customizer options
 		 *
 		 * @param object $wp_customize WordPress customizer object
 		 * @return void
